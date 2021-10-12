@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:property-placeholder location="classpath:application.properties"/>
+
+
+
+
+    <bean id="myPerson" class="peaksoft.Person">
+<!--        <constructor-arg ref="myAnimal"/>-->
+        <property name="animal" ref="hisAnimal"/>
+        <property name="age" value="${person.age}"/>
+        <property name="name" value="${person.name}"/></bean>
+
+    <bean id="hisAnimal" class="peaksoft.Lion">
+        <property name="name" value="${lion.name}"/>
+        <property name="kind" value="${lion.kind}"/>
+        <property name="color" value="${lion.color}"/>
+    </bean>
+
+    <bean id="me" class="peaksoft.Person">
+        <property name="animal" ref="myAnimal"/>
+        <property name="name" value="${my.name}"/>
+        <property name="age" value="${my.age}"/>
+    </bean>
+
+    <bean id="myAnimal" class="peaksoft.Bird">
+        <property name="color" value="${bird.color}"/>
+        <property name="kind" value="${bird.kind}"/>
+        <property name="name" value="${bird.name}"/> </bean>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</beans>
